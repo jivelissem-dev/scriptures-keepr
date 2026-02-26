@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Scriptures Keepr — Faith &amp; Angelic Peace</title>
+<title>Scriptures Keepr — Frosted Faith &amp; Angelic Peace</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
@@ -558,8 +558,10 @@ article.glass-card h2 {
 .popup-close {
   position: absolute; top: 1rem; right: 1rem; z-index: 2;
   background: rgba(255,255,255,.7); border: none; cursor: pointer;
-  width: 28px; height: 28px; border-radius: 50%; font-size: 13px; color: #9ca3af;
-  display: flex; align-items: center; justify-content: center; transition: all .3s;
+  width: 28px; height: 28px; border-radius: 50%;
+  font-size: 13px; color: #9ca3af;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .3s;
 }
 .popup-close:hover { background: var(--rose); color: #fff; }
 .popup-glow-ring {
@@ -569,378 +571,1037 @@ article.glass-card h2 {
   box-shadow: 0 10px 35px rgba(196,181,253,.55);
   animation: popIconPulse 2.5s ease-in-out infinite;
 }
-@keyframes popIconPulse { 0%,100%{transform:scale(1);box-shadow:0 10px 35px rgba(196,181,253,.55);} 50%{transform:scale(1.1);box-shadow:0 15px 45px rgba(196,181,253,.7);} }
+@keyframes popIconPulse { 0%,100%{transform:scale(1);box-shadow:0 10px 35px rgba(196,181,253,.55);} 50%{transform:scale(1.08);box-shadow:0 16px 50px rgba(196,181,253,.75);} }
 .popup-title {
-  font-family: 'Cinzel Decorative', cursive; font-size: 1.3rem;
-  color: var(--violet); margin-bottom: .6rem;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.2rem; color: var(--deep); margin-bottom: .4rem; line-height: 1.3;
 }
-.popup-sub {
+.popup-sub { font-size: 12.5px; color: #6b7280; margin-bottom: 1.3rem; line-height: 1.65; }
+.popup-input {
+  width: 100%; padding: 1rem 1.2rem;
+  border: 2px solid rgba(196,181,253,.4); border-radius: 50px; outline: none;
+  font-family: 'Quicksand', sans-serif; font-size: 13px;
+  background: rgba(255,255,255,.85); color: #374151;
+  margin-bottom: .7rem; transition: border-color .3s;
+}
+.popup-input:focus { border-color: var(--lavender); }
+.popup-submit {
+  width: 100%; padding: 1rem; border-radius: 50px;
+  background: linear-gradient(135deg, #c4b5fd, #7dd3fc, #6ee7b7);
+  background-size: 200% 200%; animation: btnGrad 4s ease infinite;
+  color: #fff; border: none; cursor: pointer;
+  font-weight: 700; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase;
+  box-shadow: 0 9px 28px rgba(196,181,253,.5);
+  transition: transform .3s; position: relative; overflow: hidden;
+}
+.popup-submit::before {
+  content: ''; position: absolute; top: -50%; left: -60%;
+  width: 220%; height: 200%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.38) 50%, transparent 70%);
+  animation: shimmer 3s linear infinite;
+}
+.popup-submit:hover { transform: scale(1.04); }
+.popup-success {
+  display: none; padding: 1.1rem;
+  background: linear-gradient(135deg, rgba(110,231,183,.2), rgba(125,211,252,.2));
+  border-radius: 18px; border: 1px solid rgba(110,231,183,.45);
+  font-size: 14px; color: var(--deep); font-weight: 600;
+}
+.popup-privacy { font-size: 10px; color: #9ca3af; margin-top: .7rem; }
+
+/* ── CATEGORY BADGES ───────────────────────────── */
+.category-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem; margin-bottom: 2rem;
+}
+.cat-card {
+  background: var(--glass); backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-b); border-radius: 24px;
+  padding: 1.4rem 1rem; text-align: center; text-decoration: none;
+  transition: all .35s;
+  box-shadow: 0 4px 20px var(--shadow);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+}
+.cat-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 18px 45px rgba(196,181,253,.3); }
+.cat-icon { font-size: 28px; }
+.cat-name {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--deep);
+}
+
+/* ── TESTIMONIALS ──────────────────────────────── */
+.testimonial-card {
+  background: linear-gradient(135deg, rgba(253,240,255,.8), rgba(240,249,255,.8));
+  border-radius: 28px; padding: 1.8rem; margin-bottom: 1.2rem;
+  border: 1px solid rgba(196,181,253,.25); position: relative;
+}
+.testimonial-card::before {
+  content: '"'; position: absolute; top: .5rem; left: 1.2rem;
+  font-family: 'Cormorant Garamond', serif; font-size: 5rem;
+  color: rgba(196,181,253,.3); line-height: 1;
+}
+.test-text {
   font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 1.1rem; color: #374151; margin-bottom: 1.4rem; line-height: 1.5;
+  font-size: 1.05rem; color: #374151; line-height: 1.75; margin-bottom: .7rem;
 }
+.test-author { font-size: 11px; font-weight: 700; color: var(--deep); letter-spacing: .15em; text-transform: uppercase; }
+
+/* ── BACK TO TOP ───────────────────────────────── */
+#back-top {
+  position: fixed; bottom: 2rem; left: 2rem;
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--lavender));
+  color: #fff; border: none; cursor: pointer; font-size: 20px;
+  box-shadow: 0 8px 28px rgba(45,212,191,.45);
+  display: none; align-items: center; justify-content: center;
+  z-index: 99970; transition: all .3s;
+}
+#back-top.show { display: flex; }
+#back-top:hover { transform: scale(1.12) translateY(-3px); }
 
 /* ── FOOTER ────────────────────────────────────── */
-#main-footer {
-  padding: 4rem 2rem; background: var(--glass);
-  backdrop-filter: blur(20px); border-top: 1px solid var(--glass-b);
-  text-align: center; position: relative; z-index: 20;
+footer {
+  position: relative; z-index: 20;
+  text-align: center; padding: 5rem 2rem 3rem;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.4));
 }
 .footer-logo {
-  font-family: 'Cinzel Decorative', cursive; font-size: 1.8rem;
-  color: var(--deep); margin-bottom: .5rem;
+  font-family: 'Cinzel Decorative', cursive; font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--deep), var(--lavender));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: .8rem;
 }
-.footer-tag { font-size: 10px; letter-spacing: .4em; color: #9ca3af; text-transform: uppercase; margin-bottom: 2rem; }
-.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
-.footer-links a { text-decoration: none; font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .15em; }
-.footer-links a:hover { color: var(--violet); }
-.copy { font-size: 10px; color: #9ca3af; letter-spacing: .05em; }
+.footer-verse {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 1.05rem; color: #6b7280; max-width: 480px;
+  margin: 0 auto 2rem; line-height: 1.7;
+}
+.footer-links {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 1.8rem; margin-bottom: 1.5rem;
+}
+.footer-links a { color: #6b7280; font-size: 12px; letter-spacing: .1em; text-decoration: none; transition: color .3s; }
+.footer-links a:hover { color: var(--deep); }
+.footer-copy { font-size: 10px; color: #9ca3af; letter-spacing: .2em; text-transform: uppercase; }
 
 /* ── RESPONSIVE ────────────────────────────────── */
-@media (min-width: 1024px) {
-  .layout-grid {
-    display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem;
-    max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem;
-  }
-}
-@media (max-width: 1023px) {
-  .layout-grid { padding: 0 1.2rem 4rem; }
-  .hero-title { font-size: 3.5rem; }
+@media (max-width: 768px) {
+  .layout-wrap { flex-direction: column; }
+  #email-popup { right: 1rem; left: 1rem; bottom: 1rem; width: auto; }
+  .hero-title { font-size: clamp(2rem, 10vw, 3.5rem); }
 }
 
+/* ── UTILS ─────────────────────────────────────── */
+.z10 { position: relative; z-index: 10; }
+.max-w { max-width: 1220px; margin: 0 auto; padding: 0 20px; }
+.fade-in { animation: fadeInUp .7s ease both; }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
 </style>
+
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════════
+     FIXED LAYER ELEMENTS
+═══════════════════════════════════════════════ -->
+<div id="reading-bar"></div>
 <div id="cursor-glow"></div>
 <canvas id="cursor-trail-canvas"></canvas>
-<div id="reading-bar"></div>
 <div id="bg-canvas"></div>
 <canvas id="three-canvas"></canvas>
 
+<!-- ═══════════════════════════════════════════════
+     ENTRY OVERLAY — THE SACRED GATE
+═══════════════════════════════════════════════ -->
 <div id="entry-overlay">
   <canvas id="entry-bg-canvas"></canvas>
   <canvas id="entry-hearts-canvas"></canvas>
+
   <div class="entry-content">
-    <h1 class="entry-title">Faith &amp; Angelic Peace</h1>
+    <h1 class="entry-title">The Sacred Gate</h1>
+
     <div class="starburst-wrap">
       <div class="starburst-rays">
+        <div class="starburst-core"></div>
         <div class="ray-diag ray-diag-1"></div>
         <div class="ray-diag ray-diag-2"></div>
         <div class="ray-diag ray-diag-3"></div>
         <div class="ray-diag ray-diag-4"></div>
       </div>
-      <div class="starburst-core"></div>
+
       <div class="btn-outer">
         <div class="rainbow-ring-a"></div>
         <div class="rainbow-ring-b"></div>
-        <button class="enter-btn" onclick="closeEntry()">ENTER<br/>SANCTUARY</button>
+        <button class="enter-btn" onclick="enterSanctuary()">
+          Enter the<br>Sanctuary
+        </button>
       </div>
     </div>
   </div>
-</div>
+</div><!-- /entry -->
 
+<!-- ═══════════════════════════════════════════════
+     MAIN SITE
+═══════════════════════════════════════════════ -->
+
+<!-- Announcement Bar -->
 <div id="announce-bar">
-  <div class="bar-text">✨ New Devotionals Weekly — Deepen Your Connection with the Divine — Join our Crystal Faith Community ✨</div>
+  <div class="bar-text">
+    🕊️ New devotionals every week · ✨ Free Scripture printables in the Shop · 🌸 Join 10,000+ sisters in faith · 💎 Daily verse &amp; prayer in your inbox · 🕊️ New devotionals every week · ✨ Free Scripture printables in the Shop · 🌸 Join 10,000+ sisters in faith
+  </div>
 </div>
 
+<!-- Verse Ticker -->
 <div id="verse-bar">
   <div class="verse-scroll">
-    "Be still and know that I am God." — Psalm 46:10 &nbsp;&bull;&nbsp;
-    "For I know the plans I have for you..." — Jeremiah 29:11 &nbsp;&bull;&nbsp;
-    "I can do all things through Christ..." — Philippians 4:13 &nbsp;&bull;&nbsp;
-    "Trust in the Lord with all your heart..." — Proverbs 3:5 &nbsp;&bull;&nbsp;
-    "The Lord your God is with you wherever you go." — Joshua 1:9
+    🕊️ "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you." — Jer 29:11 &nbsp;&nbsp;&nbsp;&nbsp; ✨ "Be still and know that I am God." — Psalm 46:10 &nbsp;&nbsp;&nbsp;&nbsp; 💎 "I can do all things through Christ who strengthens me." — Phil 4:13 &nbsp;&nbsp;&nbsp;&nbsp; 🌸 "She is clothed with strength and dignity; she can laugh at the days to come." — Prov 31:25 &nbsp;&nbsp;&nbsp;&nbsp; 🌟 "The Lord your God is with you wherever you go." — Josh 1:9 &nbsp;&nbsp;&nbsp;&nbsp; 🕊️ "Trust in the Lord with all your heart." — Prov 3:5
   </div>
 </div>
 
+<!-- HEADER -->
 <header id="main-header">
-  <div class="hero">
-    <div class="hero-orb-wrap" id="orb-container"></div>
-    <h2 class="hero-title">Scriptures Keepr</h2>
-    <div class="hero-sub">Faith &amp; Angelic Peace</div>
+  <section class="hero">
+    <h1 class="hero-title">Scriptures Keepr</h1>
+    <p class="hero-sub">✦ Frosted Faith · Angelic Peace · Sacred Words ✦</p>
+
     <nav class="glass-nav">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">Devotionals</a>
-      <a href="#" class="nav-link">Scriptures</a>
-      <a href="#" class="nav-link">Meditations</a>
-      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">🏠 Home</a>
+      <a href="#" class="nav-link">📖 Devotionals</a>
+      <a href="#" class="nav-link">🙏 Prayers</a>
+      <a href="#" class="nav-link">✨ Scripture Study</a>
+      <a href="#" class="nav-link">🌸 Faith &amp; Life</a>
+      <a href="#" class="nav-link">💌 Free Printables</a>
+      <a href="#" class="nav-link">🕊️ About</a>
     </nav>
-  </div>
+  </section>
 </header>
 
-<div class="layout-grid">
-  <main>
-    <article class="glass-card">
-      <div class="post-meta">
-        <span class="tag-pill">Spiritual Growth</span>
-        <span>•</span>
-        <span>October 24, 2023</span>
-      </div>
-      <h2>Finding Serenity in the Silence</h2>
-      <hr class="rainbow-line"/>
-      <div class="post-body">
-        <p>In the quiet moments of the morning, when the world is still and the sun begins its gentle ascent, we find the clearest path to the Divine. It is in the silence that we hear the whispers of grace, reminding us that we are never truly alone. When we intentionally carve out space for peace, our spirits begin to mirror the crystalline clarity of a mountain lake...</p>
-      </div>
-      <a href="#" class="read-more">Read Full Post</a>
-      <div class="share-bar">
-        <span class="share-lbl">Share Grace:</span>
-        <button class="s-btn s-pin" onclick="share('pin')">Pinterest</button>
-        <button class="s-btn s-tw" onclick="share('tw')">Twitter</button>
-        <button class="s-btn s-cp" onclick="copyLink(this)">🔗 Copy</button>
-      </div>
-    </article>
+<!-- MAIN CONTENT -->
+<main class="z10">
+  <div class="max-w">
 
-    <article class="glass-card">
-      <div class="post-meta">
-        <span class="tag-pill">Bible Study</span>
-        <span>•</span>
-        <span>October 21, 2023</span>
-      </div>
-      <h2>Living with Purpose &amp; Grace</h2>
-      <hr class="rainbow-line"/>
-      <div class="post-body">
-        <p>Proverbs 31:25 tells us, "She is clothed with strength and dignity; she can laugh at the days to come." This isn't just about appearance; it's about the internal armor we wear when we trust in a higher plan. How do we navigate the storms of life while maintaining our peace? By anchoring ourselves in the eternal truths that never shift...</p>
-      </div>
-      <a href="#" class="read-more">Read Full Post</a>
-      <div class="share-bar">
-        <span class="share-lbl">Share Grace:</span>
-        <button class="s-btn s-pin" onclick="share('pin')">Pinterest</button>
-        <button class="s-btn s-tw" onclick="share('tw')">Twitter</button>
-        <button class="s-btn s-cp" onclick="copyLink(this)">🔗 Copy</button>
-      </div>
-    </article>
-  </main>
-
-  <aside>
-    <div class="side-widget">
-      <div class="wid-title">Daily Inspiration</div>
-      <div class="scripture-box">
-        <div class="scripture-text" id="daily-verse">"For I know the plans I have for you, declares the Lord, plans to prosper you."</div>
-        <div class="scripture-ref" id="daily-ref">— Jeremiah 29:11</div>
-        <button class="verse-btn" onclick="newVerse()">New Verse</button>
-      </div>
+    <!-- CATEGORY BROWSE GRID -->
+    <div class="category-grid fade-in" style="animation-delay:.1s">
+      <a href="#" class="cat-card"><div class="cat-icon">📖</div><div class="cat-name">Devotionals</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">🙏</div><div class="cat-name">Prayers</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">✝️</div><div class="cat-name">Scripture</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">🌸</div><div class="cat-name">Faith Life</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">💎</div><div class="cat-name">Promises</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">🕊️</div><div class="cat-name">Peace</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">🌿</div><div class="cat-name">Healing</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon">⭐</div><div class="cat-name">Prophetic</div></a>
     </div>
 
-    <div class="side-widget">
-      <div class="wid-title">Join the Circle</div>
-      <div class="email-inline">
-        <div class="ei-icon">✉️</div>
-        <p>Receive weekly devotionals &amp; digital gifts in your inbox.</p>
-        <input type="email" class="ei-input" placeholder="Your heavenly email..."/>
-        <button class="ei-submit">Subscribe Now</button>
-        <div class="ei-privacy">We respect your peace. No spam.</div>
-      </div>
-    </div>
+    <div class="layout-wrap" style="display:flex;flex-wrap:wrap;gap:2rem;">
 
-    <div class="side-widget">
-      <div class="wid-title">Popular Meditations</div>
-      <div class="pop-post">
-        <div class="pop-thumb-placeholder" style="background:linear-gradient(135deg,#fecdd3,#fef08a);">✨</div>
-        <div>
-          <a href="#" class="pop-title">Overcoming Anxiety with Faith</a>
-          <span class="pop-snip">5 min read</span>
+      <!-- POSTS COLUMN -->
+      <div style="flex:2;min-width:300px;">
+
+        <!-- POST 1 -->
+        <article class="glass-card fade-in" style="animation-delay:.2s">
+          <div class="post-meta">
+            🕊️ <span>February 25, 2025</span>
+            <span class="tag-pill">Devotionals</span>
+            <span class="tag-pill">Peace</span>
+          </div>
+          <h2>Finding Peace in the Storm: A Morning Devotional</h2>
+          <hr class="rainbow-line"/>
+          <div class="post-body">
+            <p>There are mornings when the weight of the world feels too heavy to bear. Yet in those sacred moments of quiet, before the day demands its due, we find a gentle invitation — a whisper from the One who speaks to storms and says, <em>"Peace, be still."</em></p>
+            <p>Today, let us anchor our hearts in the truth that God's peace surpasses all understanding. It is not the absence of trouble, but the presence of the Prince of Peace dwelling within us that carries us through every valley and shadow...</p>
+          </div>
+          <a href="#" class="read-more">Continue Reading ✨</a>
+          <div class="share-bar">
+            <span class="share-lbl">Share:</span>
+            <button class="s-btn s-pin" onclick="sharePinterest()">📌 Pinterest</button>
+            <button class="s-btn s-tw" onclick="shareTwitter()">𝕏 Tweet</button>
+            <button class="s-btn s-cp" onclick="copyLink(this)">🔗 Copy</button>
+          </div>
+        </article>
+
+        <!-- POST 2 -->
+        <article class="glass-card fade-in" style="animation-delay:.3s">
+          <div class="post-meta">
+            🌸 <span>February 18, 2025</span>
+            <span class="tag-pill">Scripture Study</span>
+            <span class="tag-pill">Armor of God</span>
+          </div>
+          <h2>The Armor of God: Dressing for Spiritual Victory</h2>
+          <hr class="rainbow-line"/>
+          <div class="post-body">
+            <p>In Ephesians 6, Paul paints one of Scripture's most vivid metaphors — a warrior clothed not in earthly armor, but in divine protection. Each piece is intentional, each layer a revelation of God's tender provision for His beloved children.</p>
+            <p>The belt of truth grounds us. The breastplate of righteousness guards our hearts. And oh, dear sister — those shoes of peace? They carry you forward even when the path seems uncertain...</p>
+          </div>
+          <a href="#" class="read-more">Continue Reading ✨</a>
+          <div class="share-bar">
+            <span class="share-lbl">Share:</span>
+            <button class="s-btn s-pin" onclick="sharePinterest()">📌 Pinterest</button>
+            <button class="s-btn s-tw" onclick="shareTwitter()">𝕏 Tweet</button>
+            <button class="s-btn s-cp" onclick="copyLink(this)">🔗 Copy</button>
+          </div>
+        </article>
+
+        <!-- POST 3 -->
+        <article class="glass-card fade-in" style="animation-delay:.4s">
+          <div class="post-meta">
+            💎 <span>February 10, 2025</span>
+            <span class="tag-pill">Healing</span>
+            <span class="tag-pill">Promises</span>
+          </div>
+          <h2>Psalm 91: Living Under the Shadow of the Almighty</h2>
+          <hr class="rainbow-line"/>
+          <div class="post-body">
+            <p>There is a dwelling place described in Psalm 91 — not built with hands, not found on any map — where the soul finds absolute refuge. <em>"He who dwells in the shelter of the Most High will rest in the shadow of the Almighty."</em></p>
+            <p>This is not a promise of a trouble-free life, but something far more precious: the assurance of God's constant nearness. His wings, like a mother bird's, folded around the trembling soul...</p>
+          </div>
+          <a href="#" class="read-more">Continue Reading ✨</a>
+          <div class="share-bar">
+            <span class="share-lbl">Share:</span>
+            <button class="s-btn s-pin" onclick="sharePinterest()">📌 Pinterest</button>
+            <button class="s-btn s-tw" onclick="shareTwitter()">𝕏 Tweet</button>
+            <button class="s-btn s-cp" onclick="copyLink(this)">🔗 Copy</button>
+          </div>
+        </article>
+
+        <!-- TESTIMONIALS -->
+        <div class="glass-card fade-in" style="animation-delay:.5s">
+          <div class="wid-title">🌟 Community Voices</div>
+          <div class="testimonial-card">
+            <div class="test-text">This blog is my morning sanctuary. The devotionals fill my soul before the day even begins. I've shared them with my entire small group!</div>
+            <div class="test-author">— Sarah M., Florida</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="test-text">I found this during the hardest season of my life. The Psalm 91 study carried me through. God truly uses this ministry.</div>
+            <div class="test-author">— Grace T., Tennessee</div>
+          </div>
         </div>
-      </div>
-      <div class="pop-post">
-        <div class="pop-thumb-placeholder" style="background:linear-gradient(135deg,#bae6fd,#ddd6fe);">🕊️</div>
-        <div>
-          <a href="#" class="pop-title">Morning Gratitude Ritual</a>
-          <span class="pop-snip">3 min read</span>
+
+      </div><!-- /posts -->
+
+      <!-- SIDEBAR -->
+      <aside style="flex:1;min-width:260px;max-width:330px;">
+
+        <!-- Scripture Rotator -->
+        <div class="side-widget fade-in" style="animation-delay:.25s">
+          <div class="wid-title">✨ Daily Word</div>
+          <div class="scripture-box">
+            <div class="scripture-text" id="sc-text">"He leads me beside still waters; He restores my soul."</div>
+            <div class="scripture-ref" id="sc-ref">— Psalm 23:2–3</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="verse-btn" onclick="newVerse()">New Verse 🌸</button>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="side-widget">
-      <div class="wid-title">Connect</div>
-      <a href="#" class="social-link">📸 Instagram</a>
-      <a href="#" class="social-link">📌 Pinterest</a>
-      <a href="#" class="social-link">📺 YouTube</a>
-    </div>
-  </aside>
-</div>
+        <!-- Email Capture Sidebar -->
+        <div class="side-widget fade-in" style="animation-delay:.3s">
+          <div class="wid-title">🕊️ Faith Letters</div>
+          <div class="email-inline">
+            <div class="ei-icon">💌</div>
+            <p>"Join 10,000+ sisters receiving weekly Scripture, prayers &amp; free printables."</p>
+            <input type="email" class="ei-input" id="sb-email" placeholder="Your email address…"/>
+            <button class="ei-submit" onclick="sbEmailSubmit()">Join the Journey ✨</button>
+            <p class="ei-privacy">🔒 No spam. Only grace. Unsubscribe anytime.</p>
+          </div>
+        </div>
 
+        <!-- Popular Posts -->
+        <div class="side-widget fade-in" style="animation-delay:.35s">
+          <div class="wid-title">🌸 Beloved Posts</div>
+          <div class="pop-post">
+            <div class="pop-thumb-placeholder" style="background:linear-gradient(135deg,#c4b5fd,#7dd3fc);">🕊️</div>
+            <div>
+              <a href="#" class="pop-title">Morning Prayers for a Restful Heart</a>
+              <div class="pop-snip">A gentle way to begin your day with peace...</div>
+            </div>
+          </div>
+          <div class="pop-post">
+            <div class="pop-thumb-placeholder" style="background:linear-gradient(135deg,#fda4af,#fdba74);">✨</div>
+            <div>
+              <a href="#" class="pop-title">Proverbs 31 Woman — A Deeper Look</a>
+              <div class="pop-snip">Strength, dignity, and holy beauty...</div>
+            </div>
+          </div>
+          <div class="pop-post" style="border:none;margin:0;padding:0;">
+            <div class="pop-thumb-placeholder" style="background:linear-gradient(135deg,#6ee7b7,#fef08a);">💎</div>
+            <div>
+              <a href="#" class="pop-title">God's Promises for Healing</a>
+              <div class="pop-snip">Scripture cards to speak over your body...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connect / Social -->
+        <div class="side-widget fade-in" style="animation-delay:.4s">
+          <div class="wid-title">🌟 Connect</div>
+          <a href="#" class="social-link">📌 <span>Pinterest — Daily Verse Pins</span></a>
+          <a href="#" class="social-link">📸 <span>Instagram — Behind the Veil</span></a>
+          <a href="#" class="social-link">▶️ <span>YouTube — Scripture Meditations</span></a>
+          <a href="#" class="social-link" style="margin-bottom:0;">💬 <span>Facebook Community Group</span></a>
+        </div>
+
+        <!-- Free Printable Promo -->
+        <div class="side-widget fade-in" style="animation-delay:.45s; background: linear-gradient(135deg, rgba(253,240,255,.85), rgba(224,242,254,.85));">
+          <div style="text-align:center;">
+            <div style="font-size:40px; margin-bottom:.7rem; animation:iconPop 2s ease-in-out infinite;">🎁</div>
+            <div style="font-family:'Cinzel Decorative',cursive; font-size:10px; letter-spacing:.2em; color:var(--deep); text-transform:uppercase; margin-bottom:.6rem;">Free Gift</div>
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:#374151; line-height:1.65; margin-bottom:1rem;">"Download 5 stunning Scripture wallpapers — absolutely free."</p>
+            <a href="#" style="display:inline-block; padding:.7rem 1.8rem; border-radius:40px; background:linear-gradient(135deg,var(--rose),var(--lavender)); color:#fff; font-weight:700; font-size:11px; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; box-shadow:0 6px 20px rgba(253,164,175,.4); transition:all .3s;">Download Free ✨</a>
+          </div>
+        </div>
+
+      </aside>
+    </div><!-- /layout -->
+
+  </div><!-- /max-w -->
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-doves" style="font-size:26px; margin-bottom:.8rem; animation:entryReveal 2s ease both;">🕊️ 🕊️ 🕊️</div>
+  <div class="footer-logo">Scriptures Keepr</div>
+  <p class="footer-verse">"May the God of hope fill you with all joy and peace as you trust in Him."<br/><span style="font-size:11px; font-style:normal; font-weight:700; letter-spacing:.2em; color:var(--deep);">— Romans 15:13</span></p>
+  <div class="footer-links">
+    <a href="#">Home</a><a href="#">About</a><a href="#">Devotionals</a>
+    <a href="#">Privacy Policy</a><a href="#">Contact</a><a href="#">RSS Feed</a>
+  </div>
+  <div class="footer-copy">© <span id="yr"></span> Scriptures Keepr · Made with 🕊️ &amp; ✨ · All Rights Reserved</div>
+</footer>
+
+<!-- EMAIL POPUP -->
 <div id="email-popup">
   <div class="popup-inner">
     <canvas id="popup-glitter-canvas"></canvas>
     <button class="popup-close" onclick="closePopup()">✕</button>
     <div class="popup-content-wrap">
-      <div class="popup-glow-ring">💎</div>
-      <h3 class="popup-title">A Gift for You</h3>
-      <p class="popup-sub">Get our exclusive <b>"Crystal Peace"</b> digital devotional &amp; wallpaper pack free.</p>
-      <input type="email" class="ei-input" placeholder="Email address..."/>
-      <button class="ei-submit">Send My Gift</button>
+      <div class="popup-glow-ring">💌</div>
+      <h3 class="popup-title">Free Scripture Printables</h3>
+      <p class="popup-sub">Join our community of faith &amp; receive <strong>5 beautiful Scripture cards</strong> + weekly devotionals delivered to your heart — completely free.</p>
+      <div id="popup-form">
+        <input type="email" class="popup-input" id="p-email" placeholder="Enter your email address…"/>
+        <button class="popup-submit" onclick="popupSubmit()">✨ Yes! Send My Free Printables ✨</button>
+        <p class="popup-privacy">🔒 No spam, ever. Unsubscribe anytime. Only grace in your inbox.</p>
+      </div>
+      <div class="popup-success" id="popup-ok">
+        🎉 Welcome, dear heart! Your free printables are on their way. 🕊️
+      </div>
     </div>
   </div>
 </div>
 
-<footer id="main-footer">
-  <div class="footer-logo">Scriptures Keepr</div>
-  <div class="footer-tag">Faith &amp; Angelic Peace</div>
-  <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Contact</a>
-    <a href="#">Shop</a>
-  </div>
-  <div class="copy">&copy; 2023 SCRIPTURES KEEPR. ALL RIGHTS RESERVED.</div>
-</footer>
+<!-- Back to Top -->
+<button id="back-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Audio -->
+<audio id="bg-audio" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808f3030e.mp3" type="audio/mpeg"/>
+</audio>
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════ -->
 <script>
-/* ── ENTRY OVERLAY LOGIC ──────────────────────── */
-const entryOverlay = document.getElementById('entry-overlay');
-function closeEntry() {
-  entryOverlay.classList.add('hidden');
-  setTimeout(() => {
-    entryOverlay.style.display = 'none';
-    showPopupDelayed();
-  }, 1500);
-}
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ── ENTRY BG CANVAS ──────────────────────────── */
-const eBg = document.getElementById('entry-bg-canvas');
-const eCtx = eBg.getContext('2d');
-let w, h;
-function resizeEntry() {
-  w = eBg.width = window.innerWidth;
-  h = eBg.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeEntry);
-resizeEntry();
-
-const particles = [];
-for(let i=0; i<80; i++) {
-  particles.push({
-    x: Math.random()*w, y: Math.random()*h,
-    s: Math.random()*2+1, op: Math.random()*0.5+0.2,
-    vx: Math.random()*0.5-0.25, vy: Math.random()*0.5-0.25
-  });
-}
-function animEntry() {
-  eCtx.clearRect(0,0,w,h);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if(p.x<0) p.x=w; if(p.x>w) p.x=0;
-    if(p.y<0) p.y=h; if(p.y>h) p.y=0;
-    eCtx.fillStyle = `rgba(255,255,255,${p.op})`;
-    eCtx.beginPath();
-    eCtx.arc(p.x, p.y, p.s, 0, Math.PI*2);
-    eCtx.fill();
-  });
-  requestAnimationFrame(animEntry);
-}
-animEntry();
-
-/* ── CUSTOM CURSOR ────────────────────────────── */
-const cursorGlow = document.getElementById('cursor-glow');
-const trailCanvas = document.getElementById('cursor-trail-canvas');
-const tCtx = trailCanvas.getContext('2d');
-let dots = [];
-
-window.addEventListener('mousemove', e => {
-  cursorGlow.style.left = e.clientX + 'px';
-  cursorGlow.style.top = e.clientY + 'px';
-  dots.push({ x: e.clientX, y: e.clientY, age: 0 });
-});
-
-function resizeTrail() {
+/* ── CUSTOM GLITTER CURSOR ─────────────────────── */
+var cg = document.getElementById('cursor-glow');
+var trailCanvas = document.getElementById('cursor-trail-canvas');
+var tcx = trailCanvas.getContext('2d');
+trailCanvas.width = window.innerWidth;
+trailCanvas.height = window.innerHeight;
+window.addEventListener('resize', function(){
   trailCanvas.width = window.innerWidth;
   trailCanvas.height = window.innerHeight;
+});
+
+var mx = 0, my = 0;
+document.addEventListener('mousemove', function(e){
+  mx = e.clientX; my = e.clientY;
+  cg.style.left = mx + 'px'; cg.style.top = my + 'px';
+  spawnTrail(mx, my);
+});
+
+var trailParticles = [];
+var trailSymbols = ['✦','★','♥','✧','❋','✿','♡','✶','✸','⋆'];
+var trailColors = [
+  'rgba(253,164,175,', 'rgba(196,181,253,', 'rgba(125,211,252,',
+  'rgba(110,231,183,', 'rgba(254,240,138,', 'rgba(245,208,254,',
+  'rgba(253,186,116,', 'rgba(255,255,255,'
+];
+var lastTrail = 0;
+
+function spawnTrail(x, y) {
+  var now = Date.now();
+  if (now - lastTrail < 35) return;
+  lastTrail = now;
+  // Spawn 2-3 particles per move
+  var count = 2 + Math.floor(Math.random() * 2);
+  for (var i = 0; i < count; i++) {
+    var sym = trailSymbols[Math.floor(Math.random() * trailSymbols.length)];
+    var col = trailColors[Math.floor(Math.random() * trailColors.length)];
+    var isHeart = Math.random() > 0.4;
+    trailParticles.push({
+      x: x + (Math.random() - 0.5) * 20,
+      y: y + (Math.random() - 0.5) * 20,
+      size: 8 + Math.random() * 14,
+      alpha: 0.9 + Math.random() * 0.1,
+      vx: (Math.random() - 0.5) * 2,
+      vy: -1.5 - Math.random() * 2.5,
+      rot: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.15,
+      life: 1,
+      decay: 0.025 + Math.random() * 0.02,
+      color: col,
+      sym: sym,
+      type: isHeart ? 'heart' : 'star'
+    });
+  }
 }
-window.addEventListener('resize', resizeTrail);
-resizeTrail();
+
+function drawHeart(ctx, x, y, size, alpha, col) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.moveTo(0, -size * 0.35);
+  ctx.bezierCurveTo(size * 0.4, -size * 0.85, size * 0.9, -size * 0.15, 0, size * 0.5);
+  ctx.bezierCurveTo(-size * 0.9, -size * 0.15, -size * 0.4, -size * 0.85, 0, -size * 0.35);
+  var g = ctx.createRadialGradient(-size*.1, -size*.1, 0, 0, 0, size*.9);
+  g.addColorStop(0, col + (alpha * 1.1 > 1 ? 1 : alpha * 1.1) + ')');
+  g.addColorStop(0.5, col + (alpha * 0.7) + ')');
+  g.addColorStop(1, col + '0)');
+  ctx.fillStyle = g;
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawStar4(ctx, x, y, size, alpha, col) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  for (var k = 0; k < 4; k++) {
+    var a = (k / 4) * Math.PI * 2;
+    ctx.moveTo(0, 0);
+    ctx.lineTo(Math.cos(a) * size, Math.sin(a) * size);
+  }
+  ctx.strokeStyle = col + alpha + ')';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, size * 0.22, 0, Math.PI * 2);
+  ctx.fillStyle = col + alpha + ')';
+  ctx.fill();
+  ctx.restore();
+}
 
 function animateTrail() {
-  tCtx.clearRect(0,0,trailCanvas.width, trailCanvas.height);
-  dots.forEach((d, i) => {
-    d.age += 1;
-    const life = 1 - d.age/40;
-    if(life <= 0) dots.splice(i, 1);
-    tCtx.fillStyle = `rgba(196,181,253, ${life*0.4})`;
-    tCtx.beginPath();
-    tCtx.arc(d.x, d.y, life*6, 0, Math.PI*2);
-    tCtx.fill();
-  });
   requestAnimationFrame(animateTrail);
+  tcx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+
+  for (var i = trailParticles.length - 1; i >= 0; i--) {
+    var p = trailParticles[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.04; // gentle gravity
+    p.rot += p.rotSpeed;
+    p.life -= p.decay;
+
+    if (p.life <= 0) { trailParticles.splice(i, 1); continue; }
+
+    tcx.save();
+    tcx.translate(p.x, p.y);
+    tcx.rotate(p.rot);
+    tcx.globalAlpha = p.life;
+    tcx.translate(-p.x, -p.y);
+
+    if (p.type === 'heart') {
+      drawHeart(tcx, p.x, p.y, p.size, p.life, p.color);
+    } else {
+      drawStar4(tcx, p.x, p.y, p.size, p.life, p.color);
+    }
+    tcx.restore();
+  }
 }
 animateTrail();
 
-/* ── READING BAR ──────────────────────────────── */
-window.addEventListener('scroll', () => {
-  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (winScroll / height) * 100;
-  document.getElementById('reading-bar').style.width = scrolled + '%';
+/* ── READING PROGRESS ──────────────────────────── */
+var rbar = document.getElementById('reading-bar');
+window.addEventListener('scroll', function(){
+  var st = document.documentElement.scrollTop || document.body.scrollTop;
+  var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  rbar.style.width = (sh > 0 ? st/sh*100 : 0) + '%';
+  var bt = document.getElementById('back-top');
+  if (st > 400) bt.classList.add('show'); else bt.classList.remove('show');
 });
 
-/* ── THREE.JS CRYSTAL ORB ──────────────────────── */
-let scene, camera, renderer, crystal;
-function initThree() {
-  const container = document.getElementById('orb-container');
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(400, 400);
-  container.appendChild(renderer.domElement);
-
-  const geo = new THREE.IcosahedronGeometry(1.5, 1);
-  const mat = new THREE.MeshPhongMaterial({
-    color: 0xffffff, transparent: true, opacity: 0.3,
-    wireframe: true, shininess: 100
-  });
-  crystal = new THREE.Mesh(geo, mat);
-  scene.add(crystal);
-
-  const light = new THREE.PointLight(0xc4b5fd, 1.5, 100);
-  light.position.set(5, 5, 5);
-  scene.add(light);
-  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-
-  camera.position.z = 4;
-}
-function animThree() {
-  if(crystal) {
-    crystal.rotation.y += 0.005;
-    crystal.rotation.x += 0.003;
-  }
-  renderer.render(scene, camera);
-  requestAnimationFrame(animThree);
-}
+/* ── 3D BACKGROUND — Doves, Wings, Hearts, Stars ── */
 initThree();
-animThree();
 
-/* ── POPUP LOGIC ──────────────────────────────── */
-function showPopupDelayed() {
-  setTimeout(() => {
-    document.getElementById('email-popup').classList.add('show');
-    initGlitter();
-  }, 4000);
-}
-function closePopup() {
-  document.getElementById('email-popup').classList.remove('show');
-}
+function initThree(){
+  /* ── We use the three-canvas for a rich 2D animated scene of
+     doves, angel wings, hearts, and stars floating in 3D perspective ── */
+  var canvas = document.getElementById('three-canvas');
+  var ctx = canvas.getContext('2d');
+  var W, H;
 
-function initGlitter() {
-  const c = document.getElementById('popup-glitter-canvas');
-  const ctx = c.getContext('2d');
-  let cw = c.width = c.offsetWidth;
-  let ch = c.height = c.offsetHeight;
-  const g = [];
-  for(let i=0; i<40; i++) g.push({ x:Math.random()*cw, y:Math.random()*ch, s:Math.random()*1.5, v:Math.random()*0.3+0.1 });
-  function loop() {
-    ctx.clearRect(0,0,cw,ch);
-    g.forEach(p => {
-      p.y -= p.v; if(p.y<0) p.y=ch;
-      ctx.fillStyle = 'rgba(196,181,253,0.3)';
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
-    });
-    requestAnimationFrame(loop);
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
   }
-  loop();
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* Pastel palette with alpha prefix */
+  var pinkP   = 'rgba(253,164,175,';
+  var lavP    = 'rgba(196,181,253,';
+  var skyP    = 'rgba(125,211,252,';
+  var mintP   = 'rgba(110,231,183,';
+  var lilacP  = 'rgba(245,208,254,';
+  var roseP   = 'rgba(251,207,232,';
+  var peachP  = 'rgba(253,186,116,';
+  var whiteP  = 'rgba(255,255,255,';
+  var aquaP   = 'rgba(103,232,249,';
+
+  var palettes = [pinkP, lavP, skyP, mintP, lilacP, roseP, peachP, whiteP, aquaP];
+
+  /* ── DRAW FUNCTIONS ─────────────────── */
+
+  /* Dove silhouette — facing right, wing angle drives flap */
+  function drawDove(x, y, sc, al, wingA, col) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sc, sc);
+    ctx.globalAlpha = al;
+
+    var c = col + al + ')';
+    var cSoft = col + (al * 0.6) + ')';
+
+    /* Body */
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 14, 5.5, 0, 0, Math.PI*2);
+    ctx.fillStyle = c; ctx.fill();
+
+    /* Head */
+    ctx.beginPath();
+    ctx.arc(13, -3, 4.8, 0, Math.PI*2);
+    ctx.fillStyle = c; ctx.fill();
+
+    /* Beak */
+    ctx.beginPath();
+    ctx.moveTo(17.5, -4); ctx.lineTo(23, -4.5); ctx.lineTo(17.5, -2.5);
+    ctx.fillStyle = col + (al*0.7) + ')'; ctx.fill();
+
+    /* Tail feathers */
+    ctx.beginPath();
+    ctx.moveTo(-14, 0); ctx.lineTo(-23, -5); ctx.lineTo(-21, 0);
+    ctx.lineTo(-23, 3); ctx.lineTo(-14, 1.5);
+    ctx.fillStyle = c; ctx.fill();
+
+    /* Upper wing (flapping) */
+    var wH = Math.sin(wingA) * 20;
+    ctx.beginPath();
+    ctx.moveTo(-5, -2);
+    ctx.bezierCurveTo(2, -3 - wH, 12, -5 - wH, 15, -7);
+    ctx.bezierCurveTo(10, -5 - wH, 2, -3 - wH, 5, 2);
+    ctx.bezierCurveTo(1, 1, -5, 0, -5, -2);
+    ctx.fillStyle = c; ctx.fill();
+
+    /* Wing sheen */
+    ctx.beginPath();
+    ctx.moveTo(-2, -2);
+    ctx.bezierCurveTo(4, -2 - wH*0.5, 10, -4 - wH*0.5, 12, -5);
+    ctx.strokeStyle = whiteP + (al*0.5) + ')';
+    ctx.lineWidth = 1.2; ctx.stroke();
+
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  /* Angel wing pair — symmetrical, spread */
+  function drawAngelWing(x, y, sc, al, flapA, col) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sc, sc);
+    ctx.globalAlpha = al;
+
+    var spread = 1 + Math.sin(flapA) * 0.18;
+    var tilt = Math.sin(flapA) * 0.12;
+
+    /* Left wing */
+    ctx.save();
+    ctx.scale(-spread, 1);
+    ctx.rotate(tilt);
+    drawWingSide(ctx, col, al);
+    ctx.restore();
+
+    /* Right wing */
+    ctx.save();
+    ctx.scale(spread, 1);
+    ctx.rotate(-tilt);
+    drawWingSide(ctx, col, al);
+    ctx.restore();
+
+    /* Center body glow */
+    var gc = ctx.createRadialGradient(0, 0, 0, 0, 0, 12);
+    gc.addColorStop(0, whiteP + (al*0.8) + ')');
+    gc.addColorStop(1, whiteP + '0)');
+    ctx.beginPath(); ctx.arc(0, 0, 12, 0, Math.PI*2);
+    ctx.fillStyle = gc; ctx.fill();
+
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  function drawWingSide(ctx, col, al) {
+    /* Primary feathers — broad sweep */
+    var wg = ctx.createLinearGradient(0, -5, 55, 10);
+    wg.addColorStop(0, whiteP + (al*0.92) + ')');
+    wg.addColorStop(0.5, col + (al*0.7) + ')');
+    wg.addColorStop(1, col + '0)');
+    ctx.beginPath();
+    ctx.moveTo(0, -4);
+    ctx.bezierCurveTo(20, -22, 50, -18, 60, -2);
+    ctx.bezierCurveTo(50, 8, 22, 14, 0, 6);
+    ctx.closePath();
+    ctx.fillStyle = wg; ctx.fill();
+
+    /* Secondary feather layer */
+    ctx.beginPath();
+    ctx.moveTo(0, -2);
+    ctx.bezierCurveTo(15, -12, 35, -8, 40, 2);
+    ctx.bezierCurveTo(30, 10, 12, 10, 0, 5);
+    ctx.closePath();
+    ctx.fillStyle = whiteP + (al*0.45) + ')'; ctx.fill();
+
+    /* Feather lines */
+    ctx.strokeStyle = whiteP + (al*0.35) + ')';
+    ctx.lineWidth = 0.8;
+    for (var fi = 0; fi < 5; fi++) {
+      var t = fi / 5;
+      ctx.beginPath();
+      ctx.moveTo(t*18, -4 + t*8);
+      ctx.quadraticCurveTo(t*38 + 5, -18 + t*22, t*55 + 5, -2 + t*10);
+      ctx.stroke();
+    }
+  }
+
+  /* Crystal heart — gradient fill with highlight */
+  function drawHeart3D(x, y, sc, al, col) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sc, sc);
+
+    ctx.beginPath();
+    ctx.moveTo(0, -8);
+    ctx.bezierCurveTo(9, -18, 20, -6, 0, 10);
+    ctx.bezierCurveTo(-20, -6, -9, -18, 0, -8);
+
+    var hg = ctx.createRadialGradient(-4, -6, 0, 0, 0, 20);
+    hg.addColorStop(0, whiteP + (al*0.95) + ')');
+    hg.addColorStop(0.35, col + (al*0.8) + ')');
+    hg.addColorStop(0.7, col + (al*0.5) + ')');
+    hg.addColorStop(1, col + '0)');
+    ctx.fillStyle = hg; ctx.fill();
+
+    /* Edge glow */
+    ctx.strokeStyle = col + (al*0.4) + ')';
+    ctx.lineWidth = 1.2; ctx.stroke();
+
+    /* Specular highlight */
+    ctx.beginPath();
+    ctx.ellipse(-5, -5, 4, 2.5, -0.6, 0, Math.PI*2);
+    ctx.fillStyle = whiteP + (al*0.85) + ')'; ctx.fill();
+
+    ctx.restore();
+  }
+
+  /* 6-point star with depth */
+  function drawStar6(x, y, sc, al, rot, col) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.scale(sc, sc);
+
+    var outer = 14, inner = 6;
+    ctx.beginPath();
+    for (var i = 0; i < 12; i++) {
+      var angle = (i / 12) * Math.PI * 2 - Math.PI/2;
+      var r = i % 2 === 0 ? outer : inner;
+      if (i === 0) ctx.moveTo(Math.cos(angle)*r, Math.sin(angle)*r);
+      else ctx.lineTo(Math.cos(angle)*r, Math.sin(angle)*r);
+    }
+    ctx.closePath();
+    var sg = ctx.createRadialGradient(0, 0, 0, 0, 0, outer);
+    sg.addColorStop(0, whiteP + (al*0.98) + ')');
+    sg.addColorStop(0.4, col + (al*0.75) + ')');
+    sg.addColorStop(1, col + '0)');
+    ctx.fillStyle = sg; ctx.fill();
+
+    /* Cross sparkle */
+    ctx.strokeStyle = whiteP + (al*0.6) + ')';
+    ctx.lineWidth = 0.7;
+    ctx.beginPath();
+    ctx.moveTo(-outer*1.4, 0); ctx.lineTo(outer*1.4, 0);
+    ctx.moveTo(0, -outer*1.4); ctx.lineTo(0, outer*1.4);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  /* ── BUILD OBJECT LIST ──────────────────────── */
+  var objects = [];
+  var typeDist = ['dove','dove','dove','dove','dove','dove','dove','dove',
+                  'wing','wing','wing','wing','wing','wing',
+                  'heart','heart','heart','heart','heart','heart','heart','heart','heart','heart',
+                  'star','star','star','star','star','star','star','star'];
+
+  /* Assign depths — z 0..1 where 0=far, 1=close */
+  for (var i = 0; i < 80; i++) {
+    var type = typeDist[Math.floor(Math.random() * typeDist.length)];
+    var z = Math.random(); /* depth */
+    var sc = 0.35 + z * 1.0; /* perspective scale */
+    var al = 0.12 + z * 0.38;
+    var col = palettes[Math.floor(Math.random() * palettes.length)];
+
+    objects.push({
+      type: type,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      z: z,
+      sc: sc,
+      al: al,
+      col: col,
+      vx: (Math.random() - 0.5) * (0.15 + z * 0.35),
+      vy: -0.08 - z * 0.28,
+      wob: Math.random() * Math.PI * 2,
+      wobSpeed: 0.004 + Math.random() * 0.008,
+      wobAmp: 0.3 + Math.random() * 0.5,
+      wingPhase: Math.random() * Math.PI * 2,
+      wingSpeed: 0.04 + Math.random() * 0.06,
+      rot: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.012,
+      /* 3D sway */
+      swayX: Math.random() * Math.PI * 2,
+      swayXSpeed: 0.003 + Math.random() * 0.005,
+      swayZ: Math.random() * Math.PI * 2,
+      swayZSpeed: 0.002 + Math.random() * 0.004
+    });
+  }
+
+  /* Sort back to front */
+  objects.sort(function(a,b){ return a.z - b.z; });
+
+  var frame = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, W, H);
+    frame++;
+
+    objects.forEach(function(o) {
+      /* Update */
+      o.wob += o.wobSpeed;
+      o.wingPhase += o.wingSpeed;
+      o.rot += o.rotSpeed;
+      o.swayX += o.swayXSpeed;
+      o.swayZ += o.swayZSpeed;
+
+      /* Parallax 3D sway — closer objects sway more */
+      var swayAmount = 0.5 + o.z * 1.5;
+      o.x += o.vx + Math.sin(o.wob) * o.wobAmp * swayAmount * 0.5;
+      o.y += o.vy + Math.cos(o.swayX) * 0.15 * swayAmount;
+
+      /* Z breathing — objects pulse in depth */
+      var breathe = 1 + Math.sin(o.swayZ) * 0.06;
+      var drawSc = o.sc * breathe;
+      var drawAl = Math.min(1, o.al * (0.85 + 0.15 * Math.abs(Math.sin(o.swayZ))));
+
+      /* Wrap */
+      if (o.y < -100) { o.y = H + 100; o.x = Math.random() * W; }
+      if (o.x < -120) o.x = W + 120;
+      if (o.x > W+120) o.x = -120;
+
+      /* Draw */
+      if (o.type === 'dove') {
+        drawDove(o.x, o.y, drawSc, drawAl, o.wingPhase, o.col);
+      } else if (o.type === 'wing') {
+        drawAngelWing(o.x, o.y, drawSc * 0.9, drawAl, o.wingPhase, o.col);
+      } else if (o.type === 'heart') {
+        ctx.save();
+        ctx.translate(o.x, o.y);
+        ctx.rotate(Math.sin(o.wob*0.3) * 0.15);
+        ctx.translate(-o.x, -o.y);
+        drawHeart3D(o.x, o.y, drawSc * 1.1, drawAl, o.col);
+        ctx.restore();
+      } else if (o.type === 'star') {
+        drawStar6(o.x, o.y, drawSc, drawAl, o.rot, o.col);
+      }
+    });
+  }
+  animate();
 }
 
-/* ── UTILS ────────────────────────────────────── */
-function share(p){ window.open(p==='pin'?'https://pinterest.com/pin/create/button/':'https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title),'_blank'); }
+/* ── ENTRY OVERLAY ANIMATIONS ──────────────────── */
+(function entryGlitter(){
+  var bgC = document.getElementById('entry-bg-canvas');
+  var bgX = bgC.getContext('2d');
+  var W, H;
+  function resize(){ W = bgC.width = window.innerWidth; H = bgC.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+
+  var cols = [[255,255,255],[230,180,255],[160,210,255],[255,160,210],[180,240,255],[210,140,255],[255,200,240],[140,220,240]];
+  var gp = [];
+  for (var i = 0; i < 320; i++) {
+    var c = cols[Math.floor(Math.random()*cols.length)];
+    gp.push({x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight, r:0.4+Math.random()*2.3,
+      c:c, a:0.3+Math.random()*.7, vx:(Math.random()-.5)*.28, vy:-0.12-Math.random()*.32,
+      l:Math.random()*Math.PI*2, ls:0.016+Math.random()*.025, isStar:Math.random()>.6});
+  }
+  var gf = 0;
+  function dg(){
+    requestAnimationFrame(dg); bgX.clearRect(0,0,W,H); gf++;
+    gp.forEach(function(p){
+      p.l+=p.ls; p.x+=p.vx+Math.sin(p.l*.5)*.18; p.y+=p.vy;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W;}
+      if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
+      var sh=Math.abs(Math.sin(p.l)), al=p.a*sh;
+      var r=p.c[0],g=p.c[1],b=p.c[2];
+      if(p.isStar){
+        bgX.save(); bgX.translate(p.x,p.y); bgX.rotate(gf*.012+p.l);
+        var ln=p.r*4.5; bgX.beginPath();
+        for(var k=0;k<4;k++){var a=(k/4)*Math.PI*2;bgX.moveTo(0,0);bgX.lineTo(Math.cos(a)*ln,Math.sin(a)*ln);}
+        bgX.strokeStyle='rgba('+r+','+g+','+b+','+al+')'; bgX.lineWidth=.9; bgX.stroke();
+        bgX.beginPath(); bgX.arc(0,0,p.r*.9,0,Math.PI*2);
+        bgX.fillStyle='rgba('+r+','+g+','+b+','+(Math.min(al*1.6,1))+')'; bgX.fill();
+        bgX.restore();
+      } else {
+        bgX.beginPath(); bgX.arc(p.x,p.y,p.r,0,Math.PI*2);
+        bgX.fillStyle='rgba('+r+','+g+','+b+','+al+')'; bgX.fill();
+      }
+    });
+  }
+  dg();
+})();
+
+(function entryHearts(){
+  var hC = document.getElementById('entry-hearts-canvas');
+  var hX = hC.getContext('2d');
+  var W, H;
+  function resize(){ W=hC.width=window.innerWidth; H=hC.height=window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  function dH(ctx,x,y,sz,al,style){
+    ctx.save(); ctx.translate(x,y);
+    ctx.beginPath(); ctx.moveTo(0,-sz*.5);
+    ctx.bezierCurveTo(sz*.5,-sz*1.1,sz*1.1,-sz*.3,0,sz*.6);
+    ctx.bezierCurveTo(-sz*1.1,-sz*.3,-sz*.5,-sz*1.1,0,-sz*.5);
+    ctx.closePath();
+    if(style==='hollow'){ctx.strokeStyle='rgba(220,160,255,'+al+')';ctx.lineWidth=sz*.12;ctx.stroke();}
+    else if(style==='glass'){
+      var g=ctx.createRadialGradient(-sz*.2,-sz*.3,0,0,0,sz*1.2);
+      g.addColorStop(0,'rgba(255,255,255,'+(Math.min(al*.95,1))+')');
+      g.addColorStop(.35,'rgba(200,140,255,'+(al*.75)+')');
+      g.addColorStop(1,'rgba(120,160,255,'+(al*.22)+')');
+      ctx.fillStyle=g; ctx.fill();
+      ctx.strokeStyle='rgba(200,140,255,'+(al*.45)+')'; ctx.lineWidth=sz*.06; ctx.stroke();
+    } else {
+      var g2=ctx.createRadialGradient(-sz*.15,-sz*.25,0,0,0,sz);
+      g2.addColorStop(0,'rgba(255,140,220,'+(al*.92)+')');
+      g2.addColorStop(.5,'rgba(220,80,180,'+(al*.65)+')');
+      g2.addColorStop(1,'rgba(180,60,150,0)');
+      ctx.fillStyle=g2; ctx.fill();
+    }
+    ctx.restore();
+  }
+  var styles=['glass','glass','glass','hollow','hollow','pink'];
+  var hts=[];
+  for(var i=0;i<50;i++){
+    hts.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+      sz:7+Math.random()*25,style:styles[Math.floor(Math.random()*styles.length)],
+      a:.35+Math.random()*.6,vx:(Math.random()-.5)*.22,vy:-0.1-Math.random()*.18,
+      ph:Math.random()*Math.PI*2,ps:.005+Math.random()*.012,wb:(Math.random()-.5)*.35});
+  }
+  function dha(){
+    requestAnimationFrame(dha); hX.clearRect(0,0,W,H);
+    hts.forEach(function(h){
+      h.ph+=h.ps; h.x+=h.vx+Math.sin(h.ph*.7)*h.wb; h.y+=h.vy+Math.sin(h.ph)*.08;
+      if(h.y<-50){h.y=H+50;h.x=Math.random()*W;}
+      if(h.x<-50)h.x=W+50; if(h.x>W+50)h.x=-50;
+      var br=.82+.18*Math.abs(Math.sin(h.ph*.5));
+      hX.save(); hX.translate(h.x,h.y); hX.scale(br,br); hX.translate(-h.x,-h.y);
+      dH(hX,h.x,h.y,h.sz,h.a*(.72+.28*Math.abs(Math.sin(h.ph))),h.style);
+      hX.restore();
+    });
+  }
+  dha();
+})();
+
+/* ── POPUP GLITTER ─────────────────────────────── */
+(function popupGlitter(){
+  var pc = document.getElementById('popup-glitter-canvas');
+  var px = pc.getContext('2d');
+  pc.width = 420; pc.height = 400;
+  var pgp = [];
+  var pcols = [[255,255,255],[220,200,255],[180,220,255],[255,200,220],[200,255,230]];
+  for(var i=0;i<80;i++){
+    var c=pcols[Math.floor(Math.random()*pcols.length)];
+    pgp.push({x:Math.random()*420,y:Math.random()*400,r:.4+Math.random()*1.6,c:c,
+      a:.2+Math.random()*.5,vy:-0.08-Math.random()*.2,l:Math.random()*Math.PI*2,ls:.018+Math.random()*.03,
+      isStar:Math.random()>.6});
+  }
+  var pf=0;
+  function dpg(){
+    requestAnimationFrame(dpg); px.clearRect(0,0,420,400); pf++;
+    pgp.forEach(function(p){
+      p.l+=p.ls; p.y+=p.vy; if(p.y<-5){p.y=405;p.x=Math.random()*420;}
+      var sh=Math.abs(Math.sin(p.l)),al=p.a*sh;
+      if(p.isStar){
+        px.save(); px.translate(p.x,p.y); px.rotate(pf*.015+p.l);
+        var ln=p.r*4; px.beginPath();
+        for(var k=0;k<4;k++){var a=(k/4)*Math.PI*2;px.moveTo(0,0);px.lineTo(Math.cos(a)*ln,Math.sin(a)*ln);}
+        px.strokeStyle='rgba('+p.c[0]+','+p.c[1]+','+p.c[2]+','+al+')';
+        px.lineWidth=.7; px.stroke(); px.restore();
+      } else {
+        px.beginPath(); px.arc(p.x,p.y,p.r,0,Math.PI*2);
+        px.fillStyle='rgba('+p.c[0]+','+p.c[1]+','+p.c[2]+','+al+')'; px.fill();
+      }
+    });
+  }
+  dpg();
+})();
+
+/* ── ENTER SANCTUARY ───────────────────────────── */
+function enterSanctuary(){
+  var o = document.getElementById('entry-overlay');
+  o.classList.add('hidden');
+  setTimeout(function(){ o.style.display='none'; },1600);
+  var a = document.getElementById('bg-audio');
+  if(a){ a.volume=.08; a.play().catch(function(){}); }
+  setTimeout(showPopup, 18000);
+}
+
+/* ── EMAIL POPUP ───────────────────────────────── */
+function showPopup(){
+  var p = document.getElementById('email-popup');
+  if(p && !sessionStorage.getItem('sk_closed')) p.classList.add('show');
+}
+function closePopup(){
+  document.getElementById('email-popup').classList.remove('show');
+  sessionStorage.setItem('sk_closed','1');
+}
+function popupSubmit(){
+  var e = document.getElementById('p-email');
+  if(!e.value||!e.value.includes('@')){ e.style.borderColor='#fda4af'; return; }
+  document.getElementById('popup-form').style.display='none';
+  document.getElementById('popup-ok').style.display='block';
+  sessionStorage.setItem('sk_closed','1');
+}
+function sbEmailSubmit(){
+  var el = document.getElementById('sb-email');
+  if(!el.value||!el.value.includes('@')){ el.style.borderColor='#fda4af'; return; }
+  el.value=''; el.placeholder="🕊️ Subscribed! Welcome!"; el.disabled=true;
+}
+
+/* ── SHARE BUTTONS ─────────────────────────────── */
+function sharePinterest(){ window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href),'_blank'); }
+function shareTwitter(){ window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank'); }
 function copyLink(btn){ navigator.clipboard.writeText(window.location.href).then(function(){ btn.textContent='✅ Copied!'; setTimeout(function(){ btn.textContent='🔗 Copy'; },2000); }); }
 
 /* ── SCRIPTURE ROTATOR ─────────────────────────── */
@@ -958,14 +1619,13 @@ var verses = [
 var vi = 0;
 function newVerse(){
   vi = (vi+1) % verses.length;
-  var et = document.getElementById('daily-verse');
-  var er = document.getElementById('daily-ref');
-  et.style.opacity = 0;
+  var et = document.getElementById('sc-text'), er = document.getElementById('sc-ref');
+  et.style.opacity=0; er.style.opacity=0;
   setTimeout(function(){
-    et.textContent = verses[vi].t;
-    er.textContent = verses[vi].r;
-    et.style.opacity = 1;
-  }, 500);
+    et.textContent=verses[vi].t; er.textContent=verses[vi].r;
+    et.style.transition='opacity .5s'; er.style.transition='opacity .5s';
+    et.style.opacity=1; er.style.opacity=1;
+  }, 320);
 }
 </script>
 </body>
