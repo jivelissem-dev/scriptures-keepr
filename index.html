@@ -452,6 +452,12 @@ body {
 .fade-in { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
 .fade-in.visible { opacity:1; transform:translateY(0); }
 
+/* ── CURSOR TRAIL ANIMATION ─────────────────────── */
+@keyframes trailFly {
+  0%   { opacity: 1; transform: translate(-50%, -50%) translateX(0) translateY(0) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translateX(var(--drift)) translateY(var(--rise)) scale(0.3) rotate(30deg); }
+}
+
 /* ── MOBILE NAV ─────────────────────────────────── */
 .nav-toggle { display:none; background:none; border:none; cursor:pointer; font-size:22px; color:var(--violet); padding:12px; }
 @media(max-width:768px){
@@ -995,10 +1001,13 @@ function toggleMobileNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// ─── CUSTOM CURSOR ─────────────────────────────────────────────
+// ─── CUSTOM CURSOR + HEARTS & STARS TRAIL ──────────────────────
 const cursor = document.getElementById('cursor-glow');
 let mx = 0, my = 0, cx = 0, cy = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  spawnTrail(e.clientX, e.clientY);
+});
 (function animCursor(){
   cx += (mx - cx) * .18; cy += (my - cy) * .18;
   cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
@@ -1008,6 +1017,29 @@ document.addEventListener('mouseover', e => {
   if (e.target.closest('button, a, .verse-card, .cat-card, .glass-card')) cursor.classList.add('hover');
   else cursor.classList.remove('hover');
 });
+
+const TRAIL_SYMBOLS = ['❤️','💖','💗','💓','✨','⭐','🌟','💫','💕','🌸'];
+let trailThrottle = 0;
+function spawnTrail(x, y) {
+  const now = Date.now();
+  if (now - trailThrottle < 40) return;
+  trailThrottle = now;
+  const el = document.createElement('div');
+  const symbol = TRAIL_SYMBOLS[Math.floor(Math.random() * TRAIL_SYMBOLS.length)];
+  const size = Math.random() * 14 + 10;
+  const drift = (Math.random() - 0.5) * 40;
+  const rise = -(Math.random() * 40 + 20);
+  el.textContent = symbol;
+  el.style.cssText = `
+    position:fixed;left:${x}px;top:${y}px;
+    font-size:${size}px;pointer-events:none;z-index:999998;
+    transform:translate(-50%,-50%);
+    --drift:${drift}px;--rise:${rise}px;
+    animation:trailFly 0.85s ease forwards;
+  `;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 900);
+}
 
 // ─── READING PROGRESS ──────────────────────────────────────────
 window.addEventListener('scroll', () => {
